@@ -120,7 +120,7 @@ class PlanController extends Controller
             $money->setCurrency('USD');
             $pricing->setPriceMoney($money);
 
-            $subscription_phase = new SubscriptionPhase('DAILY');
+            $subscription_phase = new SubscriptionPhase($request->input('interval'));
             $subscription_phase->setPeriods($trial);
             $subscription_phase->setOrdinal(0);
             $subscription_phase->setPricing($pricing);
