@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('status');
             $table->timestamps();
 
-            $table->index(['team_id', 'status']);
+            $table->index(['user_id', 'status']);
         });
     }
 
