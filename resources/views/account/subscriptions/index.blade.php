@@ -9,7 +9,7 @@
     <div class="card-header">{{ __('Subscription') }}</div>
 
     <div class="card-body">
-        @if(currentTeam()->subscribed())
+        @if(subscribed())
         @if($subscription)
         <ul>
             <li>

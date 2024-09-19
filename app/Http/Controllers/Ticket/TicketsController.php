@@ -75,7 +75,7 @@ class TicketsController extends Controller
             // 'domain' => 'required',
             'message' => 'required',
         ]);
-        // $plan = currentTeam()->subscribed() ? currentTeam()->subscriptions()->first()->stripe_plan : 'Not subscribed';
+        // $plan = subscribed() ? currentTeam()->subscriptions()->first()->stripe_plan : 'Not subscribed';
         $ticket = new Ticket([
             'title' => $request->input('title'),
             'user_id' => Auth::user()->id,

@@ -66,7 +66,7 @@
                             <span class="hidden-xs">Company</span>
                         </a>
                     </li>
-                    @if(currentTeam()->subscribed())
+                    @if(subscribed())
                     <li class="m-2">
                         <a href="#email_sync" data-toggle="tab" aria-expanded="true">
                             <span class="visible-xs"><i class="fa fa-envelope"></i></span>
@@ -188,7 +188,7 @@
                         </div> --}}
                     </div>
                 </div>
-                @if(currentTeam()->subscribed())
+                @if(subscribed())
                 <div class="tab-pane pr-5 pl-5 " id="email_sync">
                     <div class="row">
                         <div class="col-lg-5 col-md-4 ml-5 mr-3  pl-5">

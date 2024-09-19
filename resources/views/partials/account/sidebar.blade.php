@@ -95,7 +95,7 @@
                                         {{ __('Subscriptions') }}
                                     </a>
                                 </li>
-                                @if (currentTeam()->subscribed())
+                                @if (subscribed())
                                     <li class="nav-item">
                                         <a class="nav-link {{ return_if(on_page('account.subscriptions.card'), ' active') }}"
                                             href="{{ route('account.subscriptions.card') }}">
@@ -111,7 +111,7 @@
                                         </a>
                                     </li>
                                 @endif
-                                @if (! currentTeam()->subscribed())
+                                @if (! subscribed())
                                     <li class="nav-item">
                                         <a href="{{ route('subscription.plans') }}"
                                             class="nav-link {{ return_if(on_page('subscription.plans'), ' active') }}">
@@ -141,7 +141,7 @@
                                             {{ __('Team Settings') }}
                                         </a>
                                     </li>
-                                    @if(currentTeam()->subscribed())
+                                    @if(subscribed())
                                     @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
                                         <li class="nav-item">
                                             <a class="nav-link {{ return_if(on_page('teams.create'), ' active') }}"
@@ -158,7 +158,7 @@
                     @endif
                     <!-- End List -->
 
-                    @if(currentTeam()->subscribed())
+                    @if(subscribed())
                     <li class="nav-item">
                         <a class="nav-link{{ return_if(on_page('ticket.index') or on_page('ticket.create'), ' active') }}"
                             href="#navbar-tickets" data-toggle="collapse" role="button" aria-expanded="false"

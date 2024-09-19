@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Subscription;
 use App\Models\Team;
 
 if (! function_exists('on_page')) {
@@ -73,9 +74,9 @@ if (! function_exists('split_name')) {
      */
     function split_name($name)
     {
-        $name = trim($name);
-        $last_name = (strpos($name, ' ') === false) ? '' : preg_replace('#.*\s([\w-]*)$#', '$1', $name);
-        $first_name = trim(preg_replace('#'.$last_name.'#', '', $name));
+        $name       = trim($name);
+        $last_name  = (strpos($name, ' ') === false) ? '' : preg_replace('#.*\s([\w-]*)$#', '$1', $name);
+        $first_name = trim(preg_replace('#' . $last_name . '#', '', $name));
 
         return [$first_name, $last_name];
     }
@@ -90,5 +91,13 @@ if (! function_exists('subscription_team')) {
     function subscription_team($subscription)
     {
         return Team::find($subscription->team_id);
+    }
+}
+
+if (! function_exists('subscribed')) {
+    function subscribed($name = 'default', $plan = null)
+    {
+        $subscription = Subscription::where('user_id', currentTeam()->owner->id)->first();
+        return $subscription && $subscription->status === 'ACTIVE' ? true : false;
     }
 }

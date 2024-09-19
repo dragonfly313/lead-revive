@@ -15,7 +15,7 @@ class Subscribed
      */
     public function handle($request, Closure $next)
     {
-        if ($request->user() && ! currentTeam()->Subscribed('default')) {
+        if ($request->user() && ! subscribed('default')) {
             return redirect()->route('subscription.plans');
         }
 

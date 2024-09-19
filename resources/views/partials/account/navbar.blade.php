@@ -57,7 +57,7 @@
                   {{ __('Subscriptions') }}
                 </a>
               </li>
-              @if(currentTeam()->subscribed())
+              @if(subscribed())
               <li class="nav-item">
                 <a class="nav-link {{ return_if(on_page('account.subscriptions.card'), ' active') }}" href="{{ route('account.subscriptions.card') }}">
                   <i class="fas fa-credit-card nav-icon"></i>
@@ -71,7 +71,7 @@
                 </a>
               </li>
               @endif
-              @if(!currentTeam()->subscribed())
+              @if(!subscribed())
               <li class="nav-item">
                 <a href="{{ route('subscription.plans') }}" class="nav-link {{ return_if(on_page('subscription.plans'), ' active') }}"> 
                   <i class="fas fa-chart-bar nav-icon"></i>

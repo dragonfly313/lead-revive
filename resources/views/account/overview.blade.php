@@ -15,7 +15,7 @@
 
         <!-- Body -->
         <div class="card-body">
-            @if (currentTeam()->onTrial() && !currentTeam()->subscribed())
+            @if (currentTeam()->onTrial() && !subscribed())
                 <h6 class="text-cap">{{ __('Your are on trial') }}:</h6>
                 <h5>
                     {{ __('Your trial will end on: ') }} <span
@@ -25,7 +25,7 @@
                 <p>{{ __('Please subscribe to a plan to continue using our app after trial period ends') }}</p>
                 <a href="{{ route('subscription.plans') }}" class="mt-3 btn btn-soft-indigo">{{ __('Subscribe') }}</a>
             @endif
-            @if (currentTeam()->subscribed('default'))
+            @if (subscribed('default'))
                 <div class="row">
                     <div class="mb-4 col-md-7 mb-md-0">
                         <div class="mb-4">
@@ -111,7 +111,7 @@
             @endif
         </div>
         <!-- End Body -->
-        @if (currentTeam()->subscribed())
+        @if (subscribed())
             <div class="text-center">
                 <span class="divider divider-text">{{ __('Plan usage') }}</span>
             </div>

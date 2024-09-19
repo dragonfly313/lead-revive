@@ -63,7 +63,7 @@
                                     {{ __('Team Settings') }}
                                 </x-jet-dropdown-link>
 
-                                @if(currentTeam()->subscribed())
+                                @if(subscribed())
                                 @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
                                     <x-jet-dropdown-link href="{{ route('teams.create') }}">
                                         {{ __('Create New Team') }}
